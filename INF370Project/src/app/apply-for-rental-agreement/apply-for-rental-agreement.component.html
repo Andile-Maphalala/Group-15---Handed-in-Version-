@@ -1,0 +1,290 @@
+<app-is-logged-in></app-is-logged-in>
+<mat-sidenav-container class="example-container"  >
+    <mat-sidenav mode="side" opened>
+      <app-nav></app-nav>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <app-username></app-username>
+          <mat-card>  
+            <mat-toolbar color="primary">  
+              <div class="container w-100 row" >
+              <div align="center" style="color:white; text-align: left;  " class="col-6">Rental Application Form
+             
+               </div>
+  
+               <div align="right"  class="col-6">
+                
+               </div>
+               <br>
+      </div>
+            </mat-toolbar>  
+          <br><br>  
+            <mat-card-content *ngFor="let emp of CLIENTs">  
+              <form [formGroup]="saveFileForm" (ngSubmit)="onExpSubmit()">
+              <!-- <div >
+                <mat-form-field class="w-100">
+                    <mat-label>Name</mat-label>
+                    <input matInput placeholder="Name" value="{{emp.Name}}" disabled>
+                  </mat-form-field>
+  
+               </div>
+               <div >
+                <mat-form-field class="w-100">
+                    <mat-label>Surname</mat-label>
+                    <input matInput placeholder="surname" value="{{emp.Surname}}" disabled>
+                  </mat-form-field>
+               </div>
+               <div >
+                <mat-form-field class="w-100">
+                    <mat-label>Email</mat-label>
+                    <input matInput placeholder="Email" value="{{emp.Email}}" disabled >
+                  </mat-form-field>
+               </div>
+               <div >
+                <mat-form-field class="w-100">
+                    <mat-label>Phone Number</mat-label>
+                    <input matInput placeholder="Phone Number" value="{{emp.PhoneNumber}}" disabled>
+                  </mat-form-field>
+               </div>
+             
+               <div >
+                <mat-form-field class="w-100">
+                    <mat-label>ID/Passport No</mat-label>
+                    <input matInput placeholder="ID/Passport No" value="{{emp.IDPassport}}" disabled>
+                  </mat-form-field>
+                  <mat-form-field class="w-100">
+                    <mat-label >Nationality</mat-label>
+                    <select matNativeControl required disabled>
+                      <option value="">{{emp.Nationality}}</option>
+                      
+                    </select>
+                  </mat-form-field>
+                <div>
+            <mat-form-field>
+            <mat-label>Date of Birth</mat-label>
+            <input matInput placeholder="Residential Address" value="{{emp.DateofBirth}}" disabled>
+            </mat-form-field>
+                </div>
+                  <div>
+                    <mat-form-field class="w-100">
+                        <mat-label >Are You a Student?</mat-label>
+                        <select matNativeControl required disabled>
+                          <option value="" ng-model="all">{{emp.isStudent}}</option>
+                          
+                        </select>
+                      </mat-form-field>
+                  </div>
+                  <div >
+                    <mat-form-field class="w-100">
+                        <mat-label>Residential Address</mat-label>
+                        <input disabled matInput placeholder="Residential Address" value="{{emp.ResidentialAddress}}">
+                      </mat-form-field>
+      
+                   </div>
+                   <div >
+                    <mat-form-field class="w-100">
+                        <mat-label>Postal Address</mat-label>
+                        <input disabled matInput placeholder="Postal Address" value="{{emp.PostalAddress}}">
+                      </mat-form-field>
+      
+                   </div>
+                   <div  *ngIf="!isStudent">
+                    <mat-form-field class="w-100" >
+                        <mat-label>Name of Employer</mat-label>
+                        <input disabled matInput placeholder="Name of Employer" value="{{emp.NameOFEmployer}}">
+                      </mat-form-field>
+      
+                   </div>
+                   <div *ngIf="!isStudent" >
+                    <mat-form-field class="w-100">
+                        <mat-label>Occupation</mat-label>
+                        <input disabled matInput placeholder="Occupation" value="{{emp.Occupation}}">
+                      </mat-form-field>
+      
+                   </div>
+                   <div *ngIf="!isStudent">
+                    <mat-form-field class="w-100">
+                        <mat-label>Work Address</mat-label>
+                        <input disabled matInput placeholder="Work Address" value="{{emp.WorkAddress}}">
+                      </mat-form-field>
+      
+                   </div>
+                   <div *ngIf="!isStudent">
+                    <mat-form-field class="w-100">
+                        <mat-label>Work Tel.No</mat-label>
+                        <input disabled matInput placeholder="Work Tel.No" value="{{emp.WorkTel}}">
+                      </mat-form-field>
+                    </div>
+                    <div *ngIf="!isStudent" >
+                        <mat-form-field class="w-100">
+                            <mat-label>Gross Salary</mat-label>
+                            <input disabled matInput placeholder="Gross Salary" value="{{emp.GrossSalary}}">
+                          </mat-form-field>
+                        </div>
+ -->
+
+                        <div>
+                
+                          <mat-form-field class="w-100">
+                              <mat-label>Preferred Rental Start Date</mat-label>
+                              <input #PREFERREDDATE formControlName="PREFERREDDATE" matInput [matDatepicker]="picker" [min]="minDate" readonly> 
+                              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                              <mat-datepicker #picker></mat-datepicker>
+                              </mat-form-field>
+                              <mat-error>  
+                                <span *ngIf="!applicationForm.get('APPLICATIONDATE').value && applicationForm.get('APPLICATIONDATE').touched"></span>  
+                              </mat-error> 
+                      </div>
+
+                        <div>
+                  <label>Upload ID *</label>
+                
+           
+                 
+                    <div class="file-field">
+                      <div class="btn btn-primary btn-sm ">
+                     
+                        <input type="file"   #resumeInput accept=".doc,.docx,.pdf">
+                      </div>
+                 
+                    </div>
+                  
+                  <!-- <input type="file" #resumeInput /> -->
+                      </div>
+                      <div [hidden]="isStudent">
+                        <label>Upload Payslip</label>
+                        <div class="file-field">
+                          <div class="btn btn-primary btn-sm ">
+                         
+                            <input type="file"  #logoInput accept=".doc,.docx,.pdf">
+                          </div>
+                     
+                        </div>
+                       
+                        <!-- <div class="custom-file">
+                          <input type="file" class="custom-file-input" #logoInput id="customFile">
+                          <label class="custom-file-label" for="customFile">Choose file</label>
+                        </div>
+                         -->
+                      <!-- <input  type="file" #logoInput/> -->
+                      </div>
+                      <div [hidden]="!isStudent">
+                        <label>Upload Bursary Letter</label>
+                         
+                    <div class="file-field">
+                      <div class="btn btn-primary btn-sm ">
+                     
+                        <input type="file"  #Bursary accept=".doc,.docx,.pdf">
+                      </div>
+                 
+                    </div>
+                  
+               
+                      </div>
+      
+               <!-- </div> -->
+               <div>
+                 <br>
+                <button type="submit" mat-raised-button color="primary"  [disabled]='PREFERREDDATE.value=="" && Bursary.value==""'>Apply For Rental Agreement</button>
+                <button type="button" routerLink="/" mat-raised-button color="warn">Cancel</button>
+
+               </div>
+              </form>  
+            </mat-card-content>  
+          </mat-card>  
+  
+                </mat-sidenav-content>
+              </mat-sidenav-container>
+           <!-- Modal -->
+        <div class="modal fade" id="editEmployeeTypeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header  alert-danger">
+                <h3 class="modal-title text-center" id="exampleModalLabel" style="text-align: center;">Error Notification</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+               <p>Please make sure that the required info is provided!</p>
+             
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+        
+     
+        <script>
+          // Add the following code if you want the name of the file appear on select
+          $(".custom-file-input").on("change", function() {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+          });
+          </script>
+          
+         
+          <!-- <div class="custom-file mb-3">
+            <input type="file" class="custom-file-input" id="customFile" name="filename">
+            <label class="custom-file-label" for="customFile">Choose file</label>
+          </div>
+
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+            </div>
+            <div class="custom-file">
+              <input type="file" class="custom-file-input" id="inputGroupFile01"
+                aria-describedby="inputGroupFileAddon01">
+              <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+            </div>
+          </div>
+          <form class="md-form">
+          <div class="input-group mb-3">
+
+            <div class="custom-file">
+              <input type="file" class="custom-file-input" multiple formControlName="importFile" id="importFile">
+                            <label class="custom-file-label" #labelImport for="importFile"><i class="fas fa-search"></i> Choose file</label>
+            </div>
+          </div>
+        </form> -->
+
+        <div id="myModal" class="modal d-block"  #modal  tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="myModalLabel">Modal header</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+                <p>One fine body…</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                <button class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+        <div class="modal fade" #modal  id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header alert-success ">
+                <h3 class="modal-title text-center" id="exampleModalLabel" style="text-align: center;">Success</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+               <h2>Successfully applied for rental agreement.  </h2>
+               <h2>We will be in touch</h2>
+              </div>
+              <div class="modal-footer " >
+                <button type="button" class="btn btn-success" data-dismiss="modal">Okay</button>
+              </div>
+            </div>
+          </div>
+        </div>

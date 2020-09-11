@@ -1,0 +1,243 @@
+
+<mat-sidenav-container class="example-container"  >
+  <mat-sidenav mode="side" opened> 
+    <img class = 'images' class="images" src="./assets/Logo.png" style="width:200px;height:100px;"/>
+     <div class="sidenav">
+ <a href="#about"> 
+           <mat-icon class="icons">home</mat-icon>
+        Home
+      </a>
+
+      <a href="#about">
+        <mat-icon class="icons">info</mat-icon>
+        View Deatils</a>
+
+        <a href="#contact">
+        <mat-icon class="icons">location_city</mat-icon>
+
+        View Property</a>
+
+      <a href="#contact">
+        <mat-icon class="icons">exit_to_app</mat-icon>
+        Logout</a>
+
+        <a href="#contact">
+          <mat-icon class="icons">delete</mat-icon>
+          Deactivate Account</a>
+
+
+
+</div>
+
+
+
+
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <app-username></app-username>
+        <mat-card>  
+          <mat-toolbar color="primary">  
+            <div class="container w-100 row"  >
+            <div align="center" style="color:white; text-align: left;  " class="col-6">  
+             Update Details
+           
+             </div>
+
+             <div text align="right"  class="col-6">
+             
+
+             </div>
+             <br>
+          
+          
+
+          </div>
+          </mat-toolbar>  
+        <br><br>  
+          <mat-card-content>  
+        
+          
+             <mat-card class="my-card">
+              <mat-card-content>
+                <form [formGroup]="userForm" (ngSubmit)="OnSubmit()">
+                  <mat-card-content>
+                          <div>
+                             <mat-form-field class="w-100">
+                                 <mat-label>Name</mat-label>
+                                 <input matInput placeholder="Name"  formControlName ="Name">
+                               </mat-form-field>
+               
+                            </div>
+                            <div >
+                             <mat-form-field class="w-100">
+                                 <mat-label>Surname</mat-label>
+                                 <input matInput placeholder="Surname"  formControlName ="Surname">
+                               </mat-form-field>
+                            </div>
+                            <div >
+                             <mat-form-field class="w-100">
+                                 <mat-label>Email</mat-label>
+                                 <input matInput type="email" placeholder="Email"  formControlName ="Email">
+                               </mat-form-field>
+                            </div>
+                            <div >
+                             <mat-form-field class="w-100">
+                                 <mat-label>Phone Number</mat-label>
+                                 <input matInput placeholder="Phone Number" formControlName ="PhoneNo">
+                               </mat-form-field>
+                            </div>
+                            <div >
+                             <mat-form-field class="w-100">
+                                 <mat-label>ID/Passport No</mat-label>
+                                 <input matInput placeholder="ID/Passport No"  formControlName ="PassportNo">
+                               </mat-form-field>
+                             </div>
+                             <div >
+                               <mat-form-field class="w-100">
+                                 <mat-label >Nationality</mat-label>
+                                 <select matNativeControl required  formControlName ="Nationality">
+                                   <option value="South African">South African</option>
+                                   <option value="Non-South African">Non-South African</option>
+                                 </select>
+                               </mat-form-field>
+                             </div>
+                             <div>
+                         <mat-form-field>
+                         <mat-label>Date Of Birth</mat-label>
+                         <input matInput [matDatepicker]="picker" value="1999/20/1"  formControlName ="DOB">
+                         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                         <mat-datepicker #picker></mat-datepicker>
+                         </mat-form-field>
+                             </div> 
+                               <div>
+                                 <mat-form-field class="w-100">
+                                     <mat-label >Are You a Student?</mat-label>
+                                     <select matNativeControl required [(ngModel)]="selection"  formControlName ="IsStudent" >
+                                       <option  *ngFor="let option of options"  [value] = "option.value">
+                                         {{option.text}}
+                                       </option>
+                                     </select>
+                                   </mat-form-field>
+                               </div>
+                               <div >
+                                 <mat-form-field class="w-100">
+                                     <mat-label>Residential Address</mat-label>
+                                     <input matInput placeholder="Residential Address"   formControlName ="Residental">
+                                   </mat-form-field>
+                   
+                                </div>
+                                <div >
+                                 <mat-form-field class="w-100">
+                                     <mat-label>Postal Address</mat-label>
+                                     <input matInput placeholder="Postal Address"  formControlName ="Postal">
+                                   </mat-form-field>
+                   
+                                </div>
+                                <div >
+                                 <mat-form-field class="w-100">
+                                     <mat-label>Name of Employer</mat-label>
+                                     <input matInput placeholder="Name of Employer"  formControlName ="Employer">
+                                   </mat-form-field>
+                   
+                                </div>
+                                <div >
+                                 <mat-form-field class="w-100">
+                                     <mat-label>Occupation</mat-label>
+                                     <input matInput placeholder="Occupation"  formControlName ="Occupation">
+                                   </mat-form-field>
+                   
+                                </div>
+                                <div >
+                                 <mat-form-field class="w-100">
+                                     <mat-label>Work Address</mat-label>
+                                     <input matInput placeholder="Work Address"  formControlName ="WorkAddress">
+                                   </mat-form-field>
+                   
+                                </div>
+                                <div >
+                                 <mat-form-field class="w-100">
+                                     <mat-label>Work Tel.No</mat-label>
+                                     <input matInput placeholder="Work Tel.No"  formControlName ="WorkTel">
+                                   </mat-form-field>
+                                 </div>
+                                 <div >
+                                     <mat-form-field class="w-100">
+                                         <mat-label>Gross Salary</mat-label>
+                                         <input matInput placeholder="Gross Salary"  formControlName ="GrossSalary">
+                                       </mat-form-field>
+                                     </div>
+                                     <div>
+                                   
+                                     
+                            </div>
+                            <div>
+                             <mat-card-actions>
+                               <button mat-raised-button color="primary" routerLink = '/view-user'  >Cancel</button>
+                                  <button mat-raised-button color="primary" [disabled]="!userForm.valid" type ="submit">Update details</button>
+                              </mat-card-actions>
+                            </div>  
+                        
+                  </mat-card-content>
+                 </form> 
+                 <button id="openModalButton" [hidden]="true" data-toggle="modal" data-target="#update">Open Modal</button>
+              </mat-card-content>
+           </mat-card>
+          </mat-card-content>  
+        </mat-card>  
+
+
+              
+         
+        
+              </mat-sidenav-content>
+            </mat-sidenav-container>
+        
+        
+        
+            <br>
+            <br>
+            <br>
+            <br> <br> <br> <br> <br> <br>
+            <br> <br> <br> <br> <br> <br>
+            <br> <br> <br> <br> <br> <br>
+        
+            <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>    
+
+        
+        
+        
+        
+        <!-- /////////////////////////////////////////Area Modals //////////////////////////-->
+        
+        <!-- Add Area modal -->
+        
+        <!-- Modal -->
+        
+        <!-- Edit Area modal -->
+        
+        <!-- Modal -->
+        <div class="modal fade" id="update" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header alert-success ">
+                <h3 class="modal-title text-center" id="exampleModalLabel" style="text-align: center;">Successful</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="form-group">
+                  <label for="exampleFormControlInput1">Successfully updated details</label>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-dismiss="modal">Ok</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        
+        
+
+        

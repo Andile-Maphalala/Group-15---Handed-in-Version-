@@ -1,0 +1,110 @@
+<mat-sidenav-container class="example-container"  >
+    <mat-sidenav mode="side" opened>
+      <app-nav></app-nav>
+
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <app-username></app-username>
+          <mat-card>
+            <mat-toolbar color="primary">
+              <div class="container w-100 row" >
+              <div align="center" style="color:white; text-align: left;  " class="col-6">Rental Termination Request
+
+               </div>
+
+               <div align="right"  class="col-6">
+
+               </div>
+               <br>
+
+
+
+            </div>
+            </mat-toolbar>
+          <br><br>
+            <mat-card-content>
+
+              <form   ngNoForm  [action]="url"method="POST" > 
+              <!-- <div>
+                <mat-form-field class="w-50">
+                  <mat-label>Choose a property to terminate rental agreement</mat-label>
+                  <mat-select>
+                    <mat-option value="Apartment/Flat">1080 Prospect St, Hatfield, Pretoria || 002</mat-option>
+                    <mat-option value="Commune">1080 Prospect St, Hatfield, Pretoria || 001</mat-option>
+                    <mat-option value="Townhouse">1122 Burnett St, Hatfield, Pretoria || 0002</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div> -->
+            <br>
+            <div>
+              <mat-form-field class="w-100">
+                <mat-label>Name</mat-label>
+                <input matInput placeholder="Name" name="Name">
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field class="w-100">
+                <mat-label>Surname</mat-label>
+                <input matInput placeholder="Surname" name="Surname">
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field class="w-100">
+                <mat-label>ID/Passport No</mat-label>
+                <input matInput placeholder="ID/Passport No" name="ID/Passport No">
+              </mat-form-field>
+            </div>
+
+                        <div>
+                                <mat-form-field class="w-50">
+                                  <input name="Termination date"  matInput [matDatepicker]="picker"matTooltip="Termination Date" placeholder="Select the termination date">
+                                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                  <mat-datepicker #picker></mat-datepicker>
+                                </mat-form-field>
+                                
+                        </div>
+                        <div>
+                          <textarea  type="text"name="Termination reason" class="form-control" rows="5" placeholder="Reason for rental agreement termination....."  ng-model="CommentText"></textarea>
+                           
+                      </div> 
+                      
+
+               <div >
+
+                <button id="my-form-button" type="submit" mat-raised-button color="primary" matTooltip="Click Submit Button">Send Request</button>
+
+               </div>
+               </form> 
+            </mat-card-content>
+          </mat-card>
+
+                </mat-sidenav-content>
+              </mat-sidenav-container>
+
+
+
+
+
+
+
+
+           <!-- Modal -->
+           <div class="modal fade" id="editEmployeeTypeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header  alert-success">
+                  <h3 class="modal-title text-center" id="exampleModalLabel" style="text-align: center;">Success Notification</h3>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                 <p>The request was successfully submitted!</p>
+
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+
+                </div>
+              </div>
+            </div>
+          </div>

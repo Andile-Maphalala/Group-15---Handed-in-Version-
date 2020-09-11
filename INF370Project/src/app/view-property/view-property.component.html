@@ -1,0 +1,116 @@
+
+<mat-sidenav-container class="example-container"  >
+    <mat-sidenav mode="side" opened> 
+     
+  
+  
+  
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <img class = 'images'   src="../../assets/Logo.png" style="width:200px;height:100px;" align="left"/>
+        <nav class="navbar  navbar-dark "  style="  background-color: #111;  ">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <a class="navbar-brand" href="#"></a>
+               
+               
+              </div>
+         
+               <div align="right"  class="col-12"  style="color:white;">
+                 
+                <i class="fa fa-user icon"></i> Login
+  
+                <i class="fa fa-sign-in"></i> Register
+  
+               </div>
+              <ul class="nav navbar-nav navbar-right nav-item nav-link">
+                <a><li style=" font-size: 20px; color: gray; "></li></a>
+              </ul>
+            </div>
+          </nav>
+          <mat-card>  
+            <mat-toolbar color="primary">  
+              <div class="container w-100 row">
+              <div align="center" style="color:black; text-align: right;  " class="col-6">  
+               
+             
+               </div>
+            
+               <br>
+            </div>
+            </mat-toolbar>  
+          <br><br>  
+            <mat-card-content>  
+              <div >
+                
+  
+               </div>
+               <div class="control-group span6 container row">
+  
+                <div class="col-md-4">
+                
+                </div>
+  
+               </div>
+               <br><br>
+               <div class="row">
+                <div class="col-md-12">
+              
+                  <div id="mdb-lightbox-ui"></div>
+              
+                  <div class="mdb-lightbox no-margin">
+              
+                    <figure class="center">
+                      <!-- <a class="black-text" href="../../assets/images/Accomodation1.jpg"
+                        data-size="1600x1067"> -->
+                        <img alt="picture" src="../../assets/images/Accomodation1.jpg"
+                        
+                          class="img-fluid">
+                       
+                      
+                    </figure> 
+                    <mat-card class="card" >   
+                        <h2>{{allProperty.ADDITIONALINFO}}</h2> 
+                        <p>{{allProperty.PROPERTYDESCRIPTION}}</p>
+                        <p>{{allProperty.ADDRESS}}</p>
+                        </mat-card>
+<br><br>
+                        <!-- <mat-card class="card" >
+                            <h3>1 bedroom 1 bathroom apartment in Hatfield</h3>
+                            <p>Modern 1 bedroom 1 bathroom apartment situated in Sunset Boulevard in Hatfield. 
+    Downstairs offers an open plan kitchen with Caesar stone tops, space for 2 wet appliances, fridge and plenty of cupboard space.
+     Living area has space for TV lounge and dining room table and there is also a storage room and a balcony.</p>
+<p>Upstairs there are 2 well sized newly tiled bedrooms with built in cupboards and the main bedroom has a second balcony with great views.
+     There is a modern full bathroom with extractor fan. Complex has excellent security and is very well maintained. 
+     Staircase and passage has also recently been tiled.There is a clubhouse with braai facilities and a large pool.
+      Situated around the corner from Fourways Mall with easy access to William Nicol.
+
+    No pets allowed.</p> -->
+
+                            
+                        
+                            <br>
+                           <!-- <mat-card class="card">
+                            <i class="fa fa-bed" style="font-size:24px;color:blue"></i><label> 1 Bedroom</label>
+                            <br>
+                            <i class="fa fa-bath" style="font-size:24px;color:blue"></i> <label> 1 Bathroom</label>
+                            <br>
+                            <i class='fas fa-swimming-pool' style='font-size:24px;color:blue'></i> <label>Pool</label>
+                           </mat-card> -->
+                           <br>
+                           <mat-card class="card">
+                            <!-- check if logged in -->
+                            <button mat-raised-button color="primary" (click)="makeBooking(allProperty.PROPERTYID)" >Make Booking</button> 
+                            <button mat-raised-button color="warn" (click)="apply(allProperty.PROPERTYID)" >Apply for Rental Agreemnent</button>
+                           </mat-card>
+                  </div>
+                </div>
+              </div>
+            </mat-card-content>  
+          </mat-card>  
+                </mat-sidenav-content>
+              </mat-sidenav-container>
+          
+          
+          
+         

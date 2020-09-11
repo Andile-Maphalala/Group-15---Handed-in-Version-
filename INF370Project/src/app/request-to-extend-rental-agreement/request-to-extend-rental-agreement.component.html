@@ -1,0 +1,86 @@
+<mat-sidenav-container class="example-container"  >
+    <mat-sidenav mode="side" opened> 
+      <app-nav></app-nav>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <app-username></app-username>
+          <mat-card>  
+            <mat-toolbar color="primary">  
+              <div class="container w-100 row" >
+              <div align="center" style="color:white; text-align: left;  " class="col-6">Rental Extension Request
+             
+               </div>
+  
+               <div align="right"  class="col-6">
+                
+               </div>
+               <br>
+            
+            
+  
+            </div>
+            </mat-toolbar>  
+          <br><br>  
+            <mat-card-content>  
+              <div>
+                <mat-form-field class="w-50">
+                  <mat-label>Choose a property to extend rental agreement</mat-label>
+                  <mat-select>
+                    <mat-option value="Apartment/Flat">1080 Prospect St, Hatfield, Pretoria || 002</mat-option>
+                    <mat-option value="Commune">1080 Prospect St, Hatfield, Pretoria || 001</mat-option>
+                    <mat-option value="Townhouse">1122 Burnett St, Hatfield, Pretoria || 0002</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            <br>
+                        <div>
+                            <mat-form-field  class="w-50"> 
+                                <mat-label>Extension Date</mat-label>
+                                <input matInput [matDatepicker]="picker">
+                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                <mat-datepicker #picker></mat-datepicker>
+                                </mat-form-field>
+                        </div>
+                        
+               <div>
+
+                <button mat-raised-button color="primary" data-toggle="modal" data-target="#editEmployeeTypeModal">Send Request</button>
+               </div>
+              
+             
+               
+            </mat-card-content>  
+          </mat-card>  
+  
+                </mat-sidenav-content>
+              </mat-sidenav-container>
+          
+          
+           
+           <!-- Modal -->
+           <div class="modal fade" id="editEmployeeTypeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header  alert-danger">
+                  <h3 class="modal-title text-center" id="exampleModalLabel" style="text-align: center;">Error Notification</h3>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                 <p>Please provide a valid date!</p>
+               
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                  
+                </div>
+              </div>
+            </div>
+          </div>   
+         
+                
+              
+          
+          
+          
+         

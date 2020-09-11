@@ -1,0 +1,182 @@
+<mat-sidenav-container class="example-container"  >
+    <mat-sidenav mode="side" opened> 
+      <img class = 'images' src="./assets/Logo.png" style="width:200px;height:100px;"/>
+       <div class="sidenav">
+   <a href="#about"> 
+             <mat-icon class="icons">home</mat-icon>
+          Home
+        </a>
+  
+        <a href="#about">
+          <mat-icon class="icons">info</mat-icon>
+          About</a>
+  
+        <a href="#services">
+          <mat-icon class="icons">description</mat-icon>
+          Administration</a>
+  
+    
+      
+  
+        <a href="#contact">
+          <mat-icon class="icons">location_city</mat-icon>
+  
+          Property Management</a>
+  
+  
+        <a href="#contact">
+          <mat-icon class="icons">how_to_reg</mat-icon>
+          Agent Management</a>
+  
+  
+        <a href="#contact">
+          <mat-icon class="icons">airline_seat_individual_suite</mat-icon>
+          Rental Management</a>
+  
+        <a href="#contact">
+          <mat-icon class="icons">record_voice_over</mat-icon>        
+          Complaint Management</a>
+  
+        <a href="#contact">
+          <mat-icon class="icons">supervised_user_circle</mat-icon>
+          User Management</a>
+  
+        <a href="#contact">
+          <mat-icon class="icons">assignment_turned_in</mat-icon>
+          Inspection Management</a>
+        <a href="#contact">
+          <mat-icon class="icons">calendar_today</mat-icon>
+          Booking Management</a>
+       
+        <a href="#contact">
+          <mat-icon class="icons">exit_to_app</mat-icon>
+          Logout</a>
+  
+  
+  
+  </div>
+  
+  
+  
+  
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <app-username></app-username>
+          <mat-card>  
+            <mat-toolbar color="primary">  
+              <div class="container w-100 row"  >
+              <div align="center" style="color:white; text-align: left;  " class="col-6">  
+          Terminate Rental Agreement
+             
+               </div>
+              
+              
+               <br>
+            
+            
+  
+            </div>
+            </mat-toolbar>  
+          <br><br>  
+            <mat-card-content>  
+              <div><h1>To complete the Rental Termination, A Termination Fee of Two months rent must be paid </h1> </div>
+                <form [formGroup]="clientForm"(ngSubmit)="onFormSubmit()">  
+             
+             
+                
+                    <table class="mat-elevation-z8 table w-100" >
+                 
+                         <tr ngclass="btn-primary"> 
+                           
+                         <th>Rental Agreement ID </th> 
+                         <th>client ID</th>
+                         <th>Rental Status ID </th> 
+                         <th>address </th> 
+                         <th>Name </th> 
+                         <th>Surname</th>
+                         <th>Phone Number</th> 
+                         <th>Lease End Date</th>
+                         <th>Terminate</th>
+
+                
+                        </tr>
+       
+                        <tr *ngFor="let cln of clients | async">  
+
+                         <td class="tbl2">{{cln.RENTALAGREEMENTID}}</td>  
+                         <td class="tbl2">{{cln.CLIENTID}}</td>  
+                         <td class="tbl2">{{cln.RENTALSTATUSID}}</td>  
+                         <td class="tbl2">{{cln.ADDRESS}}</td> 
+                         <td class="tbl2">{{cln.NAME}}</td>     
+                         <td class="tbl2">{{cln.SURNAME}}</td>  
+                         <td class="tbl2">{{cln.PHONENUMBER}}</td>     
+                         <td class="tbl2">{{cln.RENTALENDDATE}}</td>    
+                       
+                         <td style="text-align: center;" class="">  
+                          <button type="button" class="btn btn-info" data-toggle="modal" data-target="#UpdateAgreement"  matTooltip="Click Edit Button" (click)="loaddueToEdit(cln.RENTALAGREEMENTID); Addopen()">Confirm Termination Request</button>
+                           </td>
+                       </tr>
+                     
+               
+                         
+                   
+                  
+   
+               </table>
+                   </form>
+            </mat-card-content>  
+          </mat-card>  
+
+         
+        </mat-sidenav-content>
+      </mat-sidenav-container>
+  
+         
+          <form [formGroup]="clientForm"(ngSubmit)="onFormSubmitUpdateAgreement()">  
+            <div class="modal fade" *ngIf="AddshowModalBox" id="UpdateAgreement" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                  <div class="modal-header alert-primary ">
+                    <h3 class="modal-title text-center" id="exampleModalLabel" style="text-align: center;">Termination Request Confirmatoin</h3>
+                    <button type="button" #closebutton class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="form-group">
+                                <h1>Please confirm you wish to Terminate your Rental Agreement</h1>
+                      <!-- <label for="exampleFormControlInput1">Confirm you wish to Terminate Rental Agreement:</label><br>
+                      <mat-form-field class="demo-full-width">  
+                        <input formControlName="RENTALAGREEMENTID" matTooltip="Enter User ID" matInput placeholder="">  
+                      </mat-form-field>  
+                      <mat-error>  
+                        <span *ngIf="!clientForm.get('RENTALAGREEMENTID').value && clientForm.get('RENTALAGREEMENTID').touched"></span>  
+                      </mat-error>  
+
+                    
+
+
+                      -->
+                      
+
+                      
+                     
+
+                    
+                   
+                   
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+
+
+                    <button type="button"  mat-raised-button color="accent"  routerLink = "/pay-termination-fee">Pay Termination Fee</button>
+                  </div>
+             
+                </div>
+              </div>
+           
+            </div>
+          </form>
+      
